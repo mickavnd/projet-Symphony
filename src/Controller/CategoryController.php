@@ -12,21 +12,26 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CategoryController extends AbstractController
 {
     /**
      * @Route("/admin/category/create", name="category_create")
      */
-    public function create(Request $request, SluggerInterface $slugger,EntityManagerInterface $em)
+    public function create(Request $request, SluggerInterface $slugger,EntityManagerInterface $em, ValidatorInterface $Validator)
     { 
+      
+
+
+
         $category= new Category;
 
         $form= $this->createForm(CategoryType::class, $category);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()){
+        if($form->isSubmitted()&& $form->isValid()){
 
             $category->setSlug(strtolower($slugger->slug($category->getName())));
             

@@ -7,18 +7,18 @@ edition de {{product.Nom}}
 {% endblock %}
 
 {% block body %}
- {{ form_start(formView) }}
+ {{ form_start(formView,{'attr':{'novolidate':'novalidate'}}) }}
 
 	{{ form_errors(formView) }}
 
 	<div class="row">
 		<div class="col">
 			{{form_row(formView.Nom)}}
-			{{form_row(formView.prix)}}
+			{{form_row(formView.Prix)}}
 
 		</div>
         	<div class="col">
-            {{form_row(formView.mainPicture)}}
+            {{form_row(formView.mainpicture)}}
 			{{form_row(formView.shortDescription)}}
 			{{form_row(formView.category)}}
 

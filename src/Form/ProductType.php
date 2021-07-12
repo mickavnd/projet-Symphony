@@ -44,7 +44,7 @@ class ProductType extends AbstractType
                    "required"=> false
                    ])
 
-                   ->add('mainpicture',UrlType::class,[
+                   ->add('<mainp></mainp>icture',UrlType::class,[
                        "label"=>"Image du produit",
                        "attr"=>["placHolder"=>"Taper une Url dimage !"],
                        "required"=> false

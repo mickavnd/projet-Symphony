@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+<h1> connexion</h1>
+
+{% if error %}
+<div class="alert alert-danger">
+{{error.message}}
+
+</div>
+
+{% endif %}
+
+{{form_start(formView)}}
+
+{{form_widget(formView)}}
+
+<button type="submit" class="btn btn-success">connexion</button>
+
+{{form_end(formView)}}
+{% endblock %}

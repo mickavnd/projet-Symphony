@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}votre Panier
+{% endblock %}
+
+{% block body %}
+
+	<h1>votre panier</h1>
+
+	{% if items| length > 0 %}
+
+	<table  class="table">
+		<thead>
+			<tr>
+				<th>produit</th>
+				<th>prix</th>
+				<th>quantité</th>
+				<th>Total</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in items %}
+				<tr>
+					<td>
+						{{item.product.nom}}
+					</td>
+					<td>
+					
+						{{item.product.prix}}
+					</td>
+					<td>
+					<a href="{{ path("carte_add", {'id': item.product.id})  }}?returnToCarte=true" class="btn btn-sm btn-primary">
+				    <i class="fas fa-plus"></i>
+					</a>
+						{{item.qty}}
+
+						<a href="{{path("carte_decrement",{'id':  item.product.id})}}" class="btn btn-sm btn-primary">
+						<i class="fas fa-minus"></i>
+						</a>
+					</td>
+					<td>{{item.total}}</td>
+                    <td> <a href="{{ path("carte_delete",{'id': item.product.id}) }}" class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash"></i>
+                     </a>
+                     </td>
+				</tr>
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3">Total :</td>
+				<td colspan="2">{{total}}</td>
+			</tr>
+		</tfoot>
+	</table>
+	{% else %}
+		<h2>le panier est vide </h2>
+
+		{% endif %}
+
+{% endblock %}

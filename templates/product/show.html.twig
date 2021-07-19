@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="{{path('homePage')}}">Acceuil</a></li>
   <li class="breadcrumb-item"><a href="{{path('product_category',{'slug': product.category.slug})}}">{{product. category.name}}</a></li>
@@ -23,7 +24,7 @@
         <div class="col">
         <span class="badge bg-primary">{{product.category.name}}</span>
         <p>{{product.shortDescription}}</p>
-        <a href="" class=" btn  btn-success btn-lg">
+        <a href="{{ path("carte_add",{"id": product.id}) }}" class=" btn  btn-success btn-lg">
         <i class="fas fa-shopping-cart"></i>
         Ajouter au panier
         </a>

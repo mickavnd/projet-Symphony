@@ -27,6 +27,10 @@ class CartService
         $this->session->set('carte',$cart);
     }
 
+      public function empty()
+      {
+          $this->saveCarte([]);
+      }
 
     public function add(int $id)
     {
@@ -99,7 +103,9 @@ public function decrement(int $id)
 
 }
       
-
+/**
+ * @return CartItem[]
+ */
     public function getDetailed():array
 {
     $detailedCart=[];

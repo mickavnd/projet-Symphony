@@ -33,7 +33,7 @@ class HomeController extends AbstractController
         // $em->persist($product);
         // $em->flush();
 
-        $products= $productsRepository->findBy([],[],3);
+        $products= $productsRepository->findBy([],[],4);
         
        
         return $this->render("home.html.twig",[
